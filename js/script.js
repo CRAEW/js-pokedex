@@ -1,3 +1,26 @@
+//wvc - toggle views in screen between list and poke-info
+let listButton = document.getElementById('list-button');
+listButton.addEventListener("click", function() {
+  document.getElementById('poke-info').classList.toggle('hidden');
+  document.getElementById('poke-list').classList.toggle('hidden');
+
+
+
+//When item on list is clicked - hide list
+let listClick = document.querySelectorAll('li');
+for(i = 0; i <= listClick.length; ++i) {
+  listClick[i].addEventListener("click", function()
+  {
+    document.getElementById('poke-info').classList.toggle('hidden');
+    document.getElementById('poke-list').classList.toggle('hidden');
+  })
+};
+
+});
+
+
+
+
 function DoThingsWithTheDom() {
         /*
         Write your code here!
@@ -13,6 +36,10 @@ function DoThingsWithTheDom() {
         You can do this by placing empty tags in your HTML, and the assigning their content with JS.
         But you can also generate the HTML with document.createElement().
         */
+
+        //list with all pokemons
+        list.innerHTML = LoadPokemonList();
+
 
         //adds the pokemon image to the image container
         let pokeImg = document.getElementById('poke-img'); //img-tag
@@ -73,6 +100,8 @@ function DoThingsWithTheDom() {
           pokeMoves = document.querySelector('#pokeMoves span')
           pokeMoves.innerHTML = pokemon_moves;
         };
+
+        LogPokeData();
 
 
 

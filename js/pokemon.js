@@ -53,8 +53,6 @@ next.addEventListener("click", function() {
     LoadPokemon(++pokemon_id);
 });
 
-
-
 //Function that looks up the data for a pokemon when it's given the pokemon's name or id number.
 
 function LoadPokemon(pokemon){
