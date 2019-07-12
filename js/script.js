@@ -21,11 +21,25 @@ function DoThingsWithTheDom() {
         // Select the info-screen, add the pokemen-info to screen
         let pokeInfo = document.getElementById('poke-info'); //screen
 
-        //Pokemon name
-        let pokeName = document.createElement('p');
-        pokeName.classList.add('pokeName');
-        pokeName.innerHTML = '<strong>name: </strong>' + pokemon_name;
-        pokeInfo.append(pokeName);
+        //Pokemon name - Create div if doesn't excist - else change content
+        let pokeName;
+        if (document.getElementById('pokeName') == undefined) {
+          pokeName = document.createElement('p');
+          pokeName.setAttribute('id', 'pokeName');
+          pokeName.innerHTML = '<strong>name: </strong>' + `<span>${pokemon_name}</span>`;
+          pokeInfo.append(pokeName);
+        } else {
+          pokeName = document.querySelector('#pokeName span')
+          pokeName.innerHTML = pokemon_name;
+        };
+
+        //Pokemon id - sets the correct id
+        pokeId = document.getElementById('poke-id');
+        pokeId.innerHTML = pokemon_id;
+
+        //pokemon pokemon_abilities
+        
+
 
 
 

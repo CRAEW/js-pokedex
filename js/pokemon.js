@@ -35,7 +35,7 @@ poke_search.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
         LoadPokemon(poke_search.value);
     }
-})
+});
 
 // selects previous pokemon when clicked
 previous.addEventListener("click", function() {
@@ -51,7 +51,7 @@ next.addEventListener("click", function() {
         pokemon_id = 0;
     }
     LoadPokemon(++pokemon_id);
-})
+});
 
 
 

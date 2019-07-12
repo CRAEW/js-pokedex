@@ -79,7 +79,11 @@
               <div class="button-long-sm"></div>
               <div class="button-long-sm"></div>
               <div class="counter-container metal linear-metal">
-                <div class="counter"><p>25</p></div>
+                <div class="counter">
+
+                  <!-- Set the pokemon id -->
+                  <p id="poke-id">25</p>
+                </div>
               </div>
             </div>
             <div class="button-cross">
@@ -153,13 +157,19 @@
 
                 <!-- right panel black left and right buttons -->
                 <div class="button-left-right">
-                  <button id="previous" class="cross-square square-center-left">
-                    <div  class="button-left"></div>
-                  </button>
 
-                  <button id="next" class="cross-square square-center-right">
-                    <div class="button-right"></div>
-                  </button>
+                  <div class="cross-square square-center-left">
+                    <div id="previous" >
+                      <div  class="button-left"></div>
+                    </div>
+                  </div>
+
+                  <div class="cross-square square-center-right">
+                    <div id="next">
+                      <div class="button-right"></div>
+                    </div>
+                  </div>
+
                 </div>
 
               </div>
