@@ -428,7 +428,7 @@ LEFT SIDE
 
 .square-center-right {
   position: relative;
-  z-index: -1;
+  /* z-index: -1; */
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: -1px 2px 0 1px black
@@ -538,10 +538,12 @@ RIGHT SIDE
 
 .poke-info {
   display: flex;
+  flex-flow: row wrap;
   justify-content: left;
   align-items: flex-start;
   width: 90%;
   height: 80%;
+  overflow-x: hidden;
 }
 
 .screen-right .poke-info p {
@@ -549,6 +551,7 @@ RIGHT SIDE
   font-size: 0.8em;
   text-transform: capitalize;
   font-weight: 300;
+  width: 100%
 }
 
 .screen-right .poke-info strong {
