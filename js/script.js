@@ -18,9 +18,6 @@ for(i = 0; i <= listClick.length; ++i) {
 
 });
 
-
-
-
 function DoThingsWithTheDom() {
         /*
         Write your code here!
@@ -86,7 +83,7 @@ function DoThingsWithTheDom() {
           pokeInfo.append(pokeAbilities);
         } else {
           pokeAbilities = document.querySelector('#pokeAbilities span')
-          pokeAbilities.innerHTML = pokemon_abilities;
+          pokeAbilities.innerHTML = pokemon_abilities.join(', ');
         };
 
         //pokemon pokemon_moves
@@ -98,7 +95,7 @@ function DoThingsWithTheDom() {
           pokeInfo.append(pokeMoves);
         } else {
           pokeMoves = document.querySelector('#pokeMoves span')
-          pokeMoves.innerHTML = pokemon_moves;
+          pokeMoves.innerHTML = pokemon_moves.join(', ');
         };
 
         LogPokeData();
