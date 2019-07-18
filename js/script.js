@@ -100,11 +100,6 @@ function DoThingsWithTheDom() {
 
         LogPokeData();
 
-
-
-
-
-
     }
 
 //loads the image of placeholder-pokemon as a standard
