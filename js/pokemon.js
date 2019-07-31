@@ -14,14 +14,10 @@ let previous = document.getElementById("previous");
 let next = document.getElementById("next");
 let list = document.getElementById("list");
 
-let pokemon_name;
-let pokemon_id;
-let pokemon_moves;
-let pokemon_abilities;
-let pokemon_image;
-let pokemon_weight;
-
-
+//wvc - Create an object for the pokemon information
+let pokeObject = {
+  //object gets filled with function SetVariables
+};
 
 //EventListeners are added to HTML elements.
 
@@ -39,18 +35,18 @@ poke_search.addEventListener("keyup", function(event) {
 
 // selects previous pokemon when clicked
 previous.addEventListener("click", function() {
-    if (pokemon_id === undefined) {
-        pokemon_id = 2;
+    if (pokeObject.id === undefined) {
+        pokeObject.id = 2;
     }
-    LoadPokemon(--pokemon_id);
+    LoadPokemon(--pokeObject.id);
 });
 
 // selects next pokemon when clicked
 next.addEventListener("click", function() {
-    if (pokemon_id === undefined) {
-        pokemon_id = 0;
+    if (pokeObject.id === undefined) {
+        pokeObject.id = 0;
     }
-    LoadPokemon(++pokemon_id);
+    LoadPokemon(++pokeObject.id);
 });
 
 //Function that looks up the data for a pokemon when it's given the pokemon's name or id number.
@@ -73,7 +69,6 @@ function LoadPokemon(pokemon){
 }
 
 
-
 //This function changes the variables with the most recent pokemon's information.
 
 function SetVariables(data){
@@ -83,12 +78,31 @@ function SetVariables(data){
 
     else {
         console.log("Data found!")
-        pokemon_name = data.name;
-        pokemon_id = data.id;
-        pokemon_moves = data.moves.map(x => x.move.name);
-        pokemon_abilities = data.abilities.map(x => x.ability.name);
-        pokemon_image = data.sprites.front_default;
-        pokemon_weight = data.weight;
+        pokeObject.name = data.name;
+        pokeObject.id = data.id;
+        pokeObject.moves = data.moves.map(x => x.move.name);
+        pokeObject.abilities = data.abilities.map(x => x.ability.name);
+        pokeObject.image = data.sprites.front_default;
+        pokeObject.weight = data.weight;
+        pokeObject.pokeMoves;
+
+
+        pokeObject.randomMoves = function() {
+
+          let i = Math.floor((Math.random() * pokeObject.moves.length) + 1);
+          let j = Math.floor((Math.random() * pokeObject.moves.length) + 1);
+
+          return pokeObject.pokeMoves = [pokeObject.moves[i], pokeObject.moves[j]];
+
+          if (pokeObject.moves[i] === pokeObject.moves[j]) {
+            j = Math.floor((Math.random() * pokeObject.moves.length) + 1);
+            return pokeObject.pokeMoves = [pokeObject.moves[i], pokeObject.moves[j]]
+          };
+
+        }
+
+        pokeObject.randomMoves();
+        console.log(pokeObject.pokeMoves);
 
         DoThingsWithTheDom();
     }
@@ -125,14 +139,14 @@ function LoadPokemonList() {
 
 //Function that you can call to see the current pokemon's information
 
-function LogPokeData() {
-    console.log("Name: " + pokemon_name
-    + "\n" + "ID: " + pokemon_id
-    + "\n" + "Moves:", pokemon_moves
-    , "\n" + "Abilities:", pokemon_abilities
-    , "\n" + "Image URL: " + pokemon_image
-    + "\n" + "Weight: " + pokemon_weight);
-}
+// function LogPokeData() {
+//     console.log("Name: " + pokemon_name
+//     + "\n" + "ID: " + pokemon_id
+//     + "\n" + "Moves:", pokemon_moves
+//     , "\n" + "Abilities:", pokemon_abilities
+//     , "\n" + "Image URL: " + pokemon_image
+//     + "\n" + "Weight: " + pokemon_weight);
+// }
 
 /*==================================================================================================
 ======================================== Magic Ends Here! ==========================================

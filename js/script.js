@@ -40,11 +40,11 @@ function DoThingsWithTheDom() {
 
         //adds the pokemon image to the image container
         let pokeImg = document.getElementById('poke-img'); //img-tag
-        pokeImg.src = pokemon_image;
+        pokeImg.src = pokeObject.image;
 
         //Pokemon id - sets the correct id
         pokeId = document.getElementById('poke-id');
-        pokeId.innerHTML = pokemon_id;
+        pokeId.innerHTML = pokeObject.id;
 
 
         // Select the info-screen, add the pokemen-info to screen
@@ -55,11 +55,11 @@ function DoThingsWithTheDom() {
         if (document.getElementById('pokeName') == undefined) {
           pokeName = document.createElement('p');
           pokeName.setAttribute('id', 'pokeName');
-          pokeName.innerHTML = '<strong>name: </strong>' + `<span>${pokemon_name}</span>`;
+          pokeName.innerHTML = '<strong>name: </strong>' + `<span>${pokeObject.name}</span>`;
           pokeInfo.append(pokeName);
         } else {
           pokeName = document.querySelector('#pokeName span')
-          pokeName.innerHTML = pokemon_name;
+          pokeName.innerHTML = pokeObject.name;
         };
 
         //pokemon pokemon_weight
@@ -67,11 +67,11 @@ function DoThingsWithTheDom() {
         if (document.getElementById('pokeWeight') == undefined) {
           pokeWeight = document.createElement('p');
           pokeWeight.setAttribute('id', 'pokeWeight');
-          pokeWeight.innerHTML = '<strong>weight: </strong>' + `<span>${pokemon_weight} kg</span>`;
+          pokeWeight.innerHTML = '<strong>weight: </strong>' + `<span>${pokeObject.weight} kg</span>`;
           pokeInfo.append(pokeWeight);
         } else {
           pokeWeight = document.querySelector('#pokeWeight span')
-          pokeWeight.innerHTML = pokemon_weight;
+          pokeWeight.innerHTML = pokeObject.weight;
         };
 
         //pokemon pokemon_abilities
@@ -79,11 +79,11 @@ function DoThingsWithTheDom() {
         if (document.getElementById('pokeAbilities') == undefined) {
           pokeAbilities = document.createElement('p');
           pokeAbilities.setAttribute('id', 'pokeAbilities');
-          pokeAbilities.innerHTML = '<strong>abilities: </strong>' + `<span>${pokemon_abilities}</span>`;
+          pokeAbilities.innerHTML = '<strong>abilities: </strong>' + `<span>${pokeObject.abilities}</span>`;
           pokeInfo.append(pokeAbilities);
         } else {
           pokeAbilities = document.querySelector('#pokeAbilities span')
-          pokeAbilities.innerHTML = pokemon_abilities.join(', ');
+          pokeAbilities.innerHTML = pokeObject.abilities.join(', ');
         };
 
         //pokemon pokemon_moves
@@ -91,18 +91,18 @@ function DoThingsWithTheDom() {
         if (document.getElementById('pokeMoves') == undefined) {
           pokeMoves = document.createElement('p');
           pokeMoves.setAttribute('id', 'pokeMoves');
-          pokeMoves.innerHTML = '<strong>moves: </strong>' + `<span>${pokemon_moves}</span>`;
+          pokeMoves.innerHTML = '<strong>moves: </strong>' + `<span>${pokeObject.moves}</span>`;
           pokeInfo.append(pokeMoves);
         } else {
           pokeMoves = document.querySelector('#pokeMoves span')
-          pokeMoves.innerHTML = pokemon_moves.join(', ');
+          pokeMoves.innerHTML = pokeObject.moves.join(', ');
         };
 
-        LogPokeData();
+        // LogPokeData();
 
     }
 
-//loads the image of placeholder-pokemon as a standard
+// loads the image of placeholder-pokemon as a standard
 function startScreen() {
   if (poke_search.value == ''){
     LoadPokemon(poke_search.placeholder);
